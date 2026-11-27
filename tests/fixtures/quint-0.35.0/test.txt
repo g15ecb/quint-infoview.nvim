@@ -1,0 +1,25 @@
+
+  mutex_test
+    ok handOverTest passed 1 test(s)
+    1) wrongOwnerTest failed after 1 test(s)
+
+  1 passing (19ms)
+  1 failed
+
+  1) wrongOwnerTest:
+       Error [QNT508]: Expect condition does not hold true
+        at SPEC/mutex_test.qnt:14:5
+        14:     init
+                ^^^^
+        15:       .then(request("a"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+        16:       .then(acquire("a"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+        17:       .expect(owner == Free)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    Use --seed=0x5a18edb411883c36 --match=wrongOwnerTest to repeat.
+
+
+  Use --verbosity=3 to show executions.
+  Further debug with: quint test --verbosity=3 SPEC/mutex_test.qnt
+error: Tests failed

@@ -1,0 +1,10 @@
+[error] Runtime error (12ms at 0 traces/second).
+
+ Error [QNT500]: Uninitialized const CLIENTS. Use: import <moduleName>(CLIENTS=<value>).*
+
+  at SPEC/mutex.qnt:18:11
+  18:     pc' = CLIENTS.mapBy(_ => Idle),
+                ^^^^^^^
+
+Use --seed=0xc0f230b4f5c81ebb --backend=rust to reproduce.
+error: Runtime error

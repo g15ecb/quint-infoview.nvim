@@ -1,0 +1,11 @@
+
+ Error [QNT000]: Couldn't unify int and str
+Trying to unify int and str
+Trying to unify (_t2, _t2) => bool and (int, str) => _t3
+
+
+  at SPEC/tyerr.qnt:3:17
+  3:   action init = x' = "a"
+                     ^^^^^^^^
+
+error: typechecking failed

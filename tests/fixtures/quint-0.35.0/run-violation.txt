@@ -1,0 +1,48 @@
+An example execution:
+
+[State 0]
+{
+  mbt::actionTaken: "init",
+  mbt::nondetPicks: { c: None },
+  mutexBuggy::mutex::owner: Free,
+  mutexBuggy::mutex::pc: Map("a" -> Idle, "b" -> Idle, "c" -> Idle)
+}
+
+[State 1]
+{
+  mbt::actionTaken: "request",
+  mbt::nondetPicks: { c: Some("c") },
+  mutexBuggy::mutex::owner: Free,
+  mutexBuggy::mutex::pc: Map("a" -> Idle, "b" -> Idle, "c" -> Waiting)
+}
+
+[State 2]
+{
+  mbt::actionTaken: "request",
+  mbt::nondetPicks: { c: Some("b") },
+  mutexBuggy::mutex::owner: Free,
+  mutexBuggy::mutex::pc: Map("a" -> Idle, "b" -> Waiting, "c" -> Waiting)
+}
+
+[State 3]
+{
+  mbt::actionTaken: "acquire",
+  mbt::nondetPicks: { c: Some("c") },
+  mutexBuggy::mutex::owner: Held("c"),
+  mutexBuggy::mutex::pc: Map("a" -> Idle, "b" -> Waiting, "c" -> Critical)
+}
+
+[State 4]
+{
+  mbt::actionTaken: "acquire",
+  mbt::nondetPicks: { c: Some("b") },
+  mutexBuggy::mutex::owner: Held("b"),
+  mutexBuggy::mutex::pc: Map("a" -> Idle, "b" -> Critical, "c" -> Critical)
+}
+
+[violation] Found an issue (17ms at 706 traces/second).
+  ❌ atMostOneCritical
+Use --verbosity=3 to show executions.
+Observations:
+twoWaiting was observed in 11 trace(s) out of 12 explored (91.67%)
+error: Invariant violated

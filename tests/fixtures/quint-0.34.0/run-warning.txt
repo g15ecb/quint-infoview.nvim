@@ -1,0 +1,136 @@
+An example execution:
+
+[State 0]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Idle, "b" -> Idle)
+}
+
+[State 1]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Idle, "b" -> Waiting)
+}
+
+[State 2]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Waiting)
+}
+
+[State 3]
+{
+  mutexUnreached::mutex::owner: Held("b"),
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Critical)
+}
+
+[State 4]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Idle)
+}
+
+[State 5]
+{
+  mutexUnreached::mutex::owner: Held("a"),
+  mutexUnreached::mutex::pc: Map("a" -> Critical, "b" -> Idle)
+}
+
+[State 6]
+{
+  mutexUnreached::mutex::owner: Held("a"),
+  mutexUnreached::mutex::pc: Map("a" -> Critical, "b" -> Waiting)
+}
+
+[State 7]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Idle, "b" -> Waiting)
+}
+
+[State 8]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Waiting)
+}
+
+[State 9]
+{
+  mutexUnreached::mutex::owner: Held("b"),
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Critical)
+}
+
+[State 10]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Idle)
+}
+
+[State 11]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Waiting)
+}
+
+[State 12]
+{
+  mutexUnreached::mutex::owner: Held("a"),
+  mutexUnreached::mutex::pc: Map("a" -> Critical, "b" -> Waiting)
+}
+
+[State 13]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Idle, "b" -> Waiting)
+}
+
+[State 14]
+{
+  mutexUnreached::mutex::owner: Held("b"),
+  mutexUnreached::mutex::pc: Map("a" -> Idle, "b" -> Critical)
+}
+
+[State 15]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Idle, "b" -> Idle)
+}
+
+[State 16]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Idle, "b" -> Waiting)
+}
+
+[State 17]
+{
+  mutexUnreached::mutex::owner: Held("b"),
+  mutexUnreached::mutex::pc: Map("a" -> Idle, "b" -> Critical)
+}
+
+[State 18]
+{
+  mutexUnreached::mutex::owner: Held("b"),
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Critical)
+}
+
+[State 19]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Idle)
+}
+
+[State 20]
+{
+  mutexUnreached::mutex::owner: Free,
+  mutexUnreached::mutex::pc: Map("a" -> Waiting, "b" -> Waiting)
+}
+
+[warning] No violation found, but no trace reached threeCritical (97ms at 103093 traces/second).
+Checked invariants: freeMeansNobodyCritical
+Trace length statistics: max=21, min=21, average=21.00
+You may increase --max-samples and --max-steps.
+Use --verbosity to produce more (or less) output.
+Observations:
+threeCritical was observed in 0 trace(s) out of 10000 explored (0.00%)
+Use --seed=0x8255cf05de9aa72e --backend=rust to reproduce.
