@@ -2,6 +2,8 @@
 
 A side panel for [Quint](https://quint.sh) specs in Neovim, in the spirit of lean.nvim's infoview. Save a `.qnt` file and it runs `quint run` on the module under the cursor and `quint test` on the matching `_test.qnt`. The panel then lists each invariant as violated or held, each observation with how many traces reached it, and each test as passed or failed. When an invariant breaks, it shows the counterexample step by step, with the action taken and the variables it changed. `:QuintInfo verify` puts the result of `quint verify` (Apalache or TLC) in the same panel.
 
+![A violated invariant in the panel, with the step under the cursor highlighted in the source](docs/screenshot.svg)
+
 ## Scope
 
 - For one person editing Quint specs locally, with `quint` on `PATH`. Output parsing is tested against Quint 0.34.0 and 0.35.0.
